@@ -8,6 +8,9 @@ public abstract class Inmueble {
         this.codigo = codigo;
         this.disponibilidad = disponibilidad;
     }
+    public String getCodigo() {
+        return codigo;
+    }
 
     public abstract void mostrarDatos();
 
