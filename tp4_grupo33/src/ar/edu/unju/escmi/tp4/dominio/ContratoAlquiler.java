@@ -2,32 +2,33 @@ package ar.edu.unju.escmi.tp4.dominio;
 
 import java.time.LocalDate;
 
-public class ContratoAlquiler {
-    private int duracion;
-    private double precio;
-    private double gastosInmobiliaria;
-    private Cliente cliente;
+public class ContratoAlquiler extends Contrato {
+    private double duracion;
+    private double gastosInmpuestos;
     private Vivienda vivienda;
-    private LocalDate fechaContrato;
 
-    public ContratoAlquiler(int duracion, double precio, double gastosInmobiliaria, Cliente cliente, Vivienda vivienda, LocalDate fechaContrato) {
+    public ContratoAlquiler(String codigo, LocalDate fechaContrato, Cliente cliente, Inmueble inmobiliaria,
+                            double duracion, double gastosInmpuestos, Vivienda vivienda) {
+        super(codigo, fechaContrato, cliente, inmobiliaria);
         this.duracion = duracion;
-        this.precio = precio;
-        this.gastosInmobiliaria = gastosInmobiliaria;
-        this.cliente = cliente;
+        this.gastosInmpuestos = gastosInmpuestos;
         this.vivienda = vivienda;
-        this.fechaContrato = fechaContrato;
     }
 
     public double calcularMontoTotal() {
-        return precio + gastosInmobiliaria;
+        return vivienda.getPrecio() + gastosInmpuestos;
     }
 
-    public void mostrarDatosContrato() {
-        System.out.println("Contrato Alquiler [Duración: " + duracion + " meses, Precio: $" + precio +
-                ", Gastos Inmobiliaria: $" + gastosInmobiliaria + ", Monto Total: $" + calcularMontoTotal() +
-                ", Fecha: " + fechaContrato + "]");
-        cliente.mostrarDatos();
-        vivienda.mostrarDatos();
+    public void mostrarDatos() {
+        System.out.println("Duracion: " + duracion);
+        System.out.println("Precio: " + vivienda.getPrecio());
+        System.out.println("Gastos de inmobiliaria: " + gastosInmpuestos);
+        System.out.println("Dueño: " + cliente.getNombre() + " " + cliente.getApellido());
+        System.out.println("Direccion: " + vivienda.getDireccion());
+        System.out.println("Monto Total: " + calcularMontoTotal());
+        System.out.println("***********************************************************");
     }
+
+	
+
 }
