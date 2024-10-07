@@ -12,9 +12,26 @@ public class InmuebleCollection {
 
     public static void mostrarInmueblesDisponibles() {
         for (Inmueble inmueble : inmuebles) {
-            if (inmueble.estadisponible()) {
-                inmueble.mostrarDatos(); // Muestra los detalles de los inmuebles disponibles
+            if (inmueble.isEstado()) {
+                inmueble.mostrarDatos();
             }
         }
+    }
+
+    public static Inmueble buscarInmueblePorCodigo(String codigo) {
+        for (Inmueble inmueble : inmuebles) {
+            if (inmueble.getCodigo().equals(codigo)) {
+                return inmueble;
+            }
+        }
+        return null;
+    }
+    public static boolean codigoEnUso(String codigo) {
+        for (Inmueble inmueble : inmuebles) {
+            if (inmueble.getCodigo().equals(codigo)) {
+                return true; // El código ya está en uso
+            }
+        }
+        return false; // El código está disponible
     }
 }

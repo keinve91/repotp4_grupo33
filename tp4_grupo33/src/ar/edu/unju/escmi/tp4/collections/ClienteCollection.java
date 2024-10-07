@@ -10,9 +10,18 @@ public class ClienteCollection {
         clientes.add(cliente);
     }
 
+    public static Cliente buscarClientePorDni(String dni) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getDni().equals(dni)) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+
     public static void mostrarClientes() {
         for (Cliente cliente : clientes) {
-            cliente.mostrarDatos(); // Muestra los detalles de los clientes
+            cliente.mostrarDatos();
         }
     }
 }

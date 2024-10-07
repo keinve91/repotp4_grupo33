@@ -6,25 +6,27 @@ import java.util.ArrayList;
 
 public class ContratoCollection {
     public static ArrayList<ContratoAlquiler> contratosAlquiler = new ArrayList<>();
-    public static ArrayList<ContratoCompraVenta> contratosVenta = new ArrayList<>();
+    public static ArrayList<ContratoCompraVenta> contratosVentasTerreno = new ArrayList<>();
 
     public static void agregarContratoAlquiler(ContratoAlquiler contrato) {
         contratosAlquiler.add(contrato);
     }
 
     public static void agregarContratoVenta(ContratoCompraVenta contrato) {
-        contratosVenta.add(contrato);
+        contratosVentasTerreno.add(contrato);
     }
 
     public static void mostrarContratosAlquiler() {
         for (ContratoAlquiler contrato : contratosAlquiler) {
-            contrato.mostrarDatosContrato(); // Muestra los detalles de los contratos de alquiler
+            contrato.mostrarDatos();
         }
     }
 
-    public static void mostrarContratosVenta() {
-        for (ContratoCompraVenta contrato : contratosVenta) {
-            contrato.mostrarDatosContrato(); // Muestra los detalles de los contratos de venta
+    public static double calcularMontoTotalVentasTerreno() {
+        double total = 0;
+        for (ContratoCompraVenta contrato : contratosVentasTerreno) {
+            total += contrato.calcularMontoTotal();
         }
+        return total;
     }
 }
