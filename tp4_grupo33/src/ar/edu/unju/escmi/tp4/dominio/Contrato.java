@@ -7,51 +7,70 @@ public abstract class Contrato {
 	protected String codigo; 
 	protected LocalDate fechaContrato;
 	protected Cliente cliente;
-	protected Inmueble inmobiliaria;
+	protected Inmobiliaria inmobiliaria;
 	
-	public Contrato(String codigo, LocalDate fechaContrato, Cliente cliente, Inmueble inmobiliaria) {
+	public Contrato() {
+		// TODO Auto-generated constructor stub
+	}
+	
+
+
+	public Contrato(String codigo, LocalDate fechaContrato, Cliente cliente, Inmobiliaria inmobiliaria) {
 		super();
+		this.codigo = codigo;
 		this.fechaContrato = fechaContrato;
 		this.cliente = cliente;
 		this.inmobiliaria = inmobiliaria;
-		this.codigo = codigo;
-	} 
+	}
 
-	
+
+
 	public String getCodigo() {
 		return codigo;
 	}
+
+
 
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
 
+
 	public LocalDate getFechaContrato() {
 		return fechaContrato;
 	}
+
+
 
 	public void setFechaContrato(LocalDate fechaContrato) {
 		this.fechaContrato = fechaContrato;
 	}
 
 
+
 	public Cliente getCliente() {
 		return cliente;
 	}
+
+
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
 
 
-	public Inmueble getInmobiliaria() {
+
+	public Inmobiliaria getInmobiliaria() {
 		return inmobiliaria;
 	}
 
-	public void setInmobiliaria(Inmueble inmobiliaria) {
+
+
+	public void setInmobiliaria(Inmobiliaria inmobiliaria) {
 		this.inmobiliaria = inmobiliaria;
 	}
+
 
 
 	public abstract void mostrarDatos(); 
