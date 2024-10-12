@@ -3,28 +3,47 @@ package ar.edu.unju.escmi.tp4.dominio;
 import java.time.LocalDate;
 
 public class ContratoCompraVenta extends Contrato {
-    private Terreno terreno;
-    private double impuestos;
-
-   
-
-    public ContratoCompraVenta(String codigo, LocalDate fechaContrato, Cliente cliente, Inmueble inmobiliaria,
-			Terreno terreno, double impuestos) {
+	
+	private Terreno terreno;
+	private double impuesto;
+	
+	
+	public ContratoCompraVenta(String codigo, LocalDate fechaContrato, Cliente cliente, Inmobiliaria inmobiliaria, Terreno terreno, double impuesto) {
 		super(codigo, fechaContrato, cliente, inmobiliaria);
+		
 		this.terreno = terreno;
-		this.impuestos = impuestos;
+		this.impuesto = impuesto;
+	} 
+
+
+	public Terreno getTerreno() {
+		return terreno;
 	}
 
-	public double calcularMontoTotal() {
-		double total = impuestos+terreno.getPrecio();
+	public void setTerreno(Terreno terreno) {
+		this.terreno = terreno;
+	}
+
+
+	public double getImpuesto() {
+		return impuesto;
+	}
+
+	public void setImpuesto(double impuesto) {
+		this.impuesto = impuesto;
+	}
+	
+	public double montoTotal() {
+		double total = impuesto+terreno.getPrecio();
 		return total;
-    }
-
-
+	}
+	
 	public void mostrarDatos() {
-		System.out.println("Contrato Compra-Venta [Precio: $" + terreno.getPrecio() +
-                ", Impuestos: $" + impuestos + ", Monto Total: $" + calcularMontoTotal() + ", Fecha: " + fechaContrato + "]");
-        cliente.mostrarDatos();
-        terreno.mostrarDatos();		
+		System.out.println("\nCodigo del contrato: "+codigo);
+		System.out.println("Fecha del contrato: "+fechaContrato);
+		System.out.println("DNI del comprador: "+cliente.getDni());
+		System.out.println("Nombre de la inmobiliaria: "+inmobiliaria.getNombre());
+		System.out.println("Codigo del terreno: "+terreno.getCodigo());
+		System.out.println("Precio total: "+montoTotal());
 	}
 }

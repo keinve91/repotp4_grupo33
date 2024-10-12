@@ -1,32 +1,23 @@
 package ar.edu.unju.escmi.tp4.collections;
 
-import ar.edu.unju.escmi.tp4.dominio.ContratoAlquiler;
-import ar.edu.unju.escmi.tp4.dominio.ContratoCompraVenta;
 import java.util.ArrayList;
+import java.util.List;
 
-public class ContratoCollection {
-    public static ArrayList<ContratoAlquiler> contratosAlquiler = new ArrayList<>();
-    public static ArrayList<ContratoCompraVenta> contratosVentasTerreno = new ArrayList<>();
+import ar.edu.unju.escmi.tp4.dominio.*;
 
-    public static void agregarContratoAlquiler(ContratoAlquiler contrato) {
-        contratosAlquiler.add(contrato);
+public class ContratoCollection { 
+	
+	public static List<ContratoCompraVenta> contratosCVT = new ArrayList<>();
+	
+	public static void agregarContratoCVT(ContratoCompraVenta contratoCVT) {
+		contratosCVT.add(contratoCVT);
+	}
+	
+	public static List<ContratoAlquiler> contratos = new ArrayList<>();
+
+    public static void agregarContrato(ContratoAlquiler contrato) {
+        contratos.add(contrato);
     }
 
-    public static void agregarContratoVenta(ContratoCompraVenta contrato) {
-        contratosVentasTerreno.add(contrato);
-    }
-
-    public static void mostrarContratosAlquiler() {
-        for (ContratoAlquiler contrato : contratosAlquiler) {
-            contrato.mostrarDatos();
-        }
-    }
-
-    public static double calcularMontoTotalVentasTerreno() {
-        double total = 0;
-        for (ContratoCompraVenta contrato : contratosVentasTerreno) {
-            total += contrato.calcularMontoTotal();
-        }
-        return total;
-    }
+	
 }
